@@ -1,4 +1,2 @@
-symfony_curso
-=============
+# Projeto para capacitação no Framework Symfony
 
-A Symfony project created on June 15, 2017, 8:18 pm.
