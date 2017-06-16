@@ -16,5 +16,7 @@
 /vendor/
 /web/bundles/
 /.idea
-
+var/cache/
+var/logs/
+var/sessions/
 
