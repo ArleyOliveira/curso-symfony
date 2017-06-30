@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <title>SGA {% if page_title is defined %} | {{ page_title }} {% endif %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="stylesheet" href="{{ asset('bundles/sistemaacessobase/libs/font-awesome/css/font-awesome.min.css') }}"
+          type="text/css"/>
+
+    <link rel="stylesheet"
+          href="{{ asset('bundles/sistemaacessobase/libs/perfect-scrollbar/css/perfect-scrollbar.min.css') }}"
+          type="text/css"/>
+
+    <link rel="stylesheet" href="{{ asset('bundles/sistemaacessobase/libs/template/css/styles.css') }}"
+          type="text/css"/>
+
+    <link rel="stylesheet" href="{{ asset('bundles/sistemaacessobase/libs/growl/css/jquery.growl.css') }}"
+          type="text/css"/>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
+
+    <!--Date Picker3-->
+    <link rel="stylesheet"
+          href="{{ asset('bundles/sistemaacessobase/libs/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}"
+          type="text/css"/>
+    <link rel="stylesheet"
+          href="{{ asset('bundles/sistemaacessobase/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
+          type="text/css"/>
+
+    <link rel="stylesheet" href="{{ asset('bundles/sistemaacessobase/libs/waves/dist/waves.css') }}" type="text/css"/>
+
+    <link rel="stylesheet" href="{{ asset('bundles/sistemaacessobase/styles/app.css') }}" type="text/css"/>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+</head>
+<body>
+
+<div id="wrapper" class="wrapper">
+    {% include 'SistemaAcessoBaseBundle::Layout/default.html.twig' %}
+    <br>
+    <div class="row" style="margin-right: 2%; margin-left: 2%">
+        <div class="col-xs-12">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 box-bottom">
+            <div class="text-center">
+                <footer class="footer text-center" style="height:50px; top: 100%; bottom:0px; left:0px; right:0px;
+">                    &copy; Company 2017. Todos direitos reservados.
+                    <a class="form_modal" href="{{ path('terms') }}">Termo do serviço</a> |
+                    <a class="form_modal" href="{{ path('privacy_policy') }}">Política de privacidade</a>
+                </footer>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- JS Global -->
+
+<script src="{{ asset('bundles/sistemaacessobase/libs/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/bootstrap/js/bootstrap.min.js') }}"></script>
+
+<script src="{{ asset('bundles/sistemaacessobase/libs/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/template/css/custom.js') }}"></script>
+
+<script src="{{ asset('bundles/sistemaacessobase/libs/moment/moment.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/jquey-mask/jquery.mask.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/waves/dist/waves.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/confirm/jquery.confirm.min.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/libs/growl/js/jquery.growl.js') }}"></script>
+<script src="{{ asset('bundles/sistemaacessobase/scripts/app_form.js') }}"></script>
+
+<script src="{{ asset('bundles/sistemaacessobase/scripts/ui-waves.js') }}"></script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- Your application bootstrap  -->
+<script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial'
+     */
+    angular.module('BlankApp', ['ngMaterial']);
+</script>
+<script>
+    var baseUrl = window.location.origin;
+</script>
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

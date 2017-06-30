@@ -1,3 +1,8 @@
+ifnmg_base:
+    resource: "@IFNMGBaseBundle/Controller"
+    prefix:   /
+    type: annotation
+
 curso_base:
     resource: '@CursoBaseBundle/Controller'
     type: annotation
