@@ -2,6 +2,7 @@
 
 namespace IFNMG\BaseBundle\Controller;
 
+use IFNMG\BaseBundle\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,9 +21,23 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
+        /*$product = new Product();
+
+        $product
+            ->setName('Teste')
+            ->setPrice(10.00)
+            ->setDescription('Teste')
+        ;
+
+        $em->persist($product);
+        $em->flush();*/
+
+        $products = $em->getRepository(Product::class)->findAll();
+
         return [
-            'name' => 'Arley',
-            'sobrenome' => "Oliveira"
+            'products' => $products
         ];
     }
 }
