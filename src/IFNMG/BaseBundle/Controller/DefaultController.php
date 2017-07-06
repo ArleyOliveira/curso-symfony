@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class DefaultController
  * @package IFNMG\BaseBundle\Controller
  * @Template()
- * @Route("/default")
+ * @Route("/")
  */
 class DefaultController extends Controller
 {
