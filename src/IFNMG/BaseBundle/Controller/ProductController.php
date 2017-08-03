@@ -3,8 +3,10 @@
 namespace IFNMG\BaseBundle\Controller;
 
 use IFNMG\BaseBundle\Entity\Product;
+use IFNMG\BaseBundle\Form\Type\ProductType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -13,31 +15,38 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Template()
  * @Route("/")
  */
-class DefaultController extends Controller
+class ProductController extends Controller
 {
 
     /**
-     * @Route("/", name="default_index")
+     * @Route("/", name="product_index")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        /*$product = new Product();
-
-        $product
-            ->setName('Teste')
-            ->setPrice(10.00)
-            ->setDescription('Teste')
-        ;
-
-        $em->persist($product);
-        $em->flush();*/
 
         $products = $em->getRepository(Product::class)->findAll();
 
         return [
             'products' => $products
         ];
+    }
+
+    /**
+     * @Route("/", name="product_new")
+     */
+    public function newAction(Request $request){
+        $product = new Product();
+
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($product);
+        $em->flush();
+
+
     }
 }

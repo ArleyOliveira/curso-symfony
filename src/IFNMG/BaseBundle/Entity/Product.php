@@ -5,8 +5,8 @@ namespace IFNMG\BaseBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="IFNMG\BaseBundle\Repository\ProductRepository")
+ * @ORM\Table(name="products")
  */
 class Product
 {
@@ -27,10 +27,12 @@ class Product
      */
     private $price;
 
+
     /**
      * @ORM\Column(type="text", name="description")
      */
     private $description;
+
 
     /**
      * @return mixed
@@ -103,6 +105,5 @@ class Product
         $this->description = $description;
         return $this;
     }
-
 
 }
