@@ -1,0 +1,54 @@
+{% extends 'IFNMGBaseBundle:Layout:layout.html.twig' %}
+{% set page_title = 'Produto' %}
+
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Adicionar novo produto</h3>
+        </div>
+
+        <div class="panel-body">
+            {{ form_start(form, { attr: {class: form_css|default('') } }) }}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group {% if form.name.vars.errors|length %} has-error {% endif %}">
+                        {{ form_label(form.name) }} <br>
+                        {{ form_widget(form.name) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group {% if form.price.vars.errors|length %} has-error {% endif %}">
+                        {{ form_label(form.price) }} <br>
+                        {{ form_widget(form.price) }}
+                        {{ form_errors(form.price) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group {% if form.description.vars.errors|length %} has-error {% endif %}">
+                        {{ form_label(form.description) }} <br>
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn {{ button_css|default('btn-info btn-fw ') }} waves-effect">
+                {{ button_label|default('Salvar') }}
+            </button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

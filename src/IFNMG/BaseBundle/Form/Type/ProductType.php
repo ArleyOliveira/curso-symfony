@@ -24,13 +24,15 @@ class ProductType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nome',
                 'required' => true,
-                'attr' => ['class' => 'produtos']
+                'attr' => ['class' => 'form-control produtos', 'placeholder' => 'Nome']
             ])
             ->add('price', TextType::class, [
-                'label' => 'Preço'
+                'label' => 'Preço',
+                'attr' => ['class' => 'form-control' , 'placeholder' => 'Preço']
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Descrição'
+                'label' => 'Descrição',
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Descrição']
             ])
         ;
     }

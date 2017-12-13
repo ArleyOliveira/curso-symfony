@@ -4,6 +4,7 @@ namespace IFNMG\BaseBundle\Controller;
 
 use IFNMG\BaseBundle\Entity\Product;
 use IFNMG\BaseBundle\Form\Type\ProductType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,20 +34,33 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/", name="product_new")
+     * @Route("/new", name="product_new")
+     * @Method({"POST", "GET"})
      */
-    public function newAction(Request $request){
+    public function newAction(Request $request)
+    {
         $product = new Product();
 
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($product);
+                $em->flush();
 
-        $em = $this->getDoctrine()->getManager();
+                return $this->redirectToRoute( 'product_index');
 
-        $em->persist($product);
-        $em->flush();
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+                die;
+            }
+        }
 
+        return [
+            'form' => $form->createView()
+        ];
 
     }
 }
